@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SENSALIA · Amazon Vendor Dashboard — Junio 2026</title>
+<title>SENSALIA · Amazon Vendor Dashboard — Julio 2026</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
   :root {
@@ -140,7 +140,7 @@
   </div>
   <div class="header-meta">
     <div>Datos actualizados hasta</div>
-    <div class="date-badge">Junio 2026</div>
+    <div class="date-badge">Julio 2026</div>
   </div>
 </div>
 
@@ -184,6 +184,7 @@
   <button class="mf-btn" onclick="filterMonth(3)">Abril</button>
   <button class="mf-btn" onclick="filterMonth(4)">Mayo</button>
   <button class="mf-btn" onclick="filterMonth(5)">Junio</button>
+  <button class="mf-btn" onclick="filterMonth(6)">Julio</button>
   <div class="mf-sep"></div>
   <span id="filterBadge" style="font-size:11.5px;color:var(--green-mid);font-weight:600;display:none;">
     Mostrando: <span id="filterBadgeText"></span>
@@ -240,7 +241,7 @@
   </div>
 
   <div class="section">
-    <div class="section-title">🏷️ PPC por Categoría · España <span id="ppcCatMonth">Junio 2026</span></div>
+    <div class="section-title">🏷️ PPC por Categoría · España <span id="ppcCatMonth">Julio 2026</span></div>
     <div class="two-col-chart">
       <div>
         <div class="tbl-wrap">
@@ -256,7 +257,7 @@
   </div>
 
   <div class="section">
-    <div class="section-title">📊 Analítica por Producto · España <span id="catSectionMonth">Junio 2026</span></div>
+    <div class="section-title">📊 Analítica por Producto · España <span id="catSectionMonth">Julio 2026</span></div>
 
     <div style="background:var(--green-pale);border-radius:10px;padding:16px;border:1px solid var(--green-border);margin-bottom:16px">
       <div style="font-size:12.5px;font-weight:700;color:var(--green-dark);margin-bottom:10px">
@@ -423,7 +424,7 @@
   </div>
 
   <div class="section">
-    <div class="section-title">📅 Evolución Mensual Consolidada · Ene-Jun 2026</div>
+    <div class="section-title">📅 Evolución Mensual Consolidada · Ene-Jul 2026</div>
     <div class="chart-wrap tall"><canvas id="chartGlobalTrend"></canvas></div>
     <div class="trend-analysis" id="insightGlobalTrend"></div>
   </div>
@@ -486,7 +487,7 @@
 
   <div class="section">
     <div class="section-title">📦 Sell-In · Objetivo 2026 (Nacional vs Internacional)</div>
-    <div style="font-size:12px;color:var(--text-muted);margin-bottom:14px;">Objetivo revisado en abril 2026, enviado por Sensalia. <strong>Nacional</strong> = España. <strong>Internacional</strong> = Italia + Alemania combinadas. Real disponible Ene–Jun 2026; Jul–Dic pendiente de reportar.</div>
+    <div style="font-size:12px;color:var(--text-muted);margin-bottom:14px;">Objetivo revisado en abril 2026, enviado por Sensalia. <strong>Nacional</strong> = España. <strong>Internacional</strong> = Italia + Alemania combinadas. Real disponible Ene–Jul 2026; Ago–Dic pendiente de reportar.</div>
     <div class="kpi-grid" id="kpiSellInForecast"></div>
     <div class="tbl-wrap">
       <table>
@@ -500,7 +501,7 @@
   </div>
 
   <div class="section">
-    <div class="section-title">✏️ Forecast Interactivo · Jul–Dic 2026</div>
+    <div class="section-title">✏️ Forecast Interactivo · Ago–Dic 2026</div>
     <div style="font-size:12px;color:var(--text-muted);margin-bottom:14px;">Objetivos reales extraídos de la pestaña "Forecast 2026" del Google Sheet. Edita las celdas de proyección para simular escenarios; los totales anuales se recalculan automáticamente.</div>
     <div class="tbl-wrap">
       <table id="forecastTable">
@@ -524,7 +525,7 @@
   </div>
 
   <div class="section">
-    <div class="section-title">✏️ Forecast Interactivo · Sell-In · Jul–Dic 2026</div>
+    <div class="section-title">✏️ Forecast Interactivo · Sell-In · Ago–Dic 2026</div>
     <div style="font-size:12px;color:var(--text-muted);margin-bottom:14px;">Objetivo de Sell-In revisado en abril 2026. Nacional = España. Internacional = Italia + Alemania combinadas. Edita las celdas de proyección para simular escenarios.</div>
     <div class="tbl-wrap">
       <table id="forecastTableSellIn">
@@ -539,115 +540,115 @@
     <div class="kpi-grid" id="forecastSummarySellIn" style="margin-top:18px"></div>
   </div>
 </div>
-<div class="footer">SENSALIA / Iroha Nature · Amazon Vendor Dashboard · Datos hasta Junio 2026 · Generado con Claude AI</div>
+<div class="footer">SENSALIA / Iroha Nature · Amazon Vendor Dashboard · Datos hasta Julio 2026 · Generado con Claude AI</div>
 <script>
-const MONTHS = ['Enero','Febrero','Marzo','Abril','Mayo','Junio'];
-const MN     = ['Ene','Feb','Mar','Abr','May','Jun'];
+const MONTHS = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio'];
+const MN     = ['Ene','Feb','Mar','Abr','May','Jun','Jul'];
 
 const D = {
   es: {
-    sellIn:    [17299,41144,71697,54464,44623,33241],
-    sellIn25:  [31066,25280,33257,34097,41349,31544],
-    sellOut:   [73771,60349,75313,66549,64870,58658],
-    sellOut25: [27751,30055,40912,41893,41262,35414],
-    units:     [15093,12442,15287,13071,13539,11646],
-    units25:   [8108,7449,9586,9881,10155,8534],
-    ticket:    [4.74,4.78,4.83,4.96,4.69,4.94],
-    ticket25:  [3.37,3.95,4.17,4.17,3.97,4.04],
-    target:    [41667,42857,65143,62857,61714,54476],
-    sessions:  [66679,54254,75311,57507,61865,44800],
-    sessions25:[53037,41819,51824,53728,53728,36433],
-    conv:      [22.64,22.93,20.3,22.73,21.88,26.0],
-    conv25:    [15.29,17.81,18.5,18.39,18.9,23.42],
+    sellIn:    [17299,41144,71697,54464,44623,33241,41892],
+    sellIn25:  [31066,25280,33257,34097,41349,31544,31560],
+    sellOut:   [73771,60349,75313,66549,64870,58658,52685],
+    sellOut25: [27751,30055,40912,41893,41262,35414,37484],
+    units:     [15093,12442,15287,13071,13539,11646,11350],
+    units25:   [8108,7449,9586,9881,10155,8534,10195],
+    ticket:    [4.74,4.78,4.83,4.96,4.69,4.94,4.43],
+    ticket25:  [3.37,3.95,4.17,4.17,3.97,4.04,3.61],
+    target:    [41667,42857,65143,62857,61714,54476,52381],
+    sessions:  [66679,54254,75311,57507,61865,44800,40087],
+    sessions25:[53037,41819,51824,53728,53728,36433,41546],
+    conv:      [22.64,22.93,20.3,22.73,21.88,26.0,29.05],
+    conv25:    [15.29,17.81,18.5,18.39,18.9,23.42,24.54],
     ppc: {
-      spend:  [4679,4494,6421,5469,4966,4537],
-      spend25:[3283,3320,3406,3578,4284,4207],
-      sales:  [21836,21789,29947,26332,23495,20487],
-      sales25:[10415,11124,14454,14702,13737,11970],
-      acos:   [21.43,20.62,21.44,20.77,21.14,22.15],
-      acos25: [31.52,29.85,23.56,24.33,31.19,35.14],
-      roas:   [4.67,4.85,4.66,4.81,4.73,4.52],
-      roas25: [3.17,3.35,4.24,4.11,3.21,2.85],
-      tacos:  [6.54,7.56,8.7,8.43,7.82,7.89],
-      tacos25:[12.02,11.27,8.52,8.68,10.63,12.19],
-      orders: [3488,3742,5055,4198,3998,3183],
-      orders25:[2212,2104,2484,2387,2276,2014],
-      impr:   [2312311,2713927,3038428,2202315,2658361,2522158],
-      impr25: [1693868,1887815,1987575,1990933,3124721,2297612]
+      spend:  [4679,4494,6421,5469,4966,4537,5783],
+      spend25:[3283,3320,3406,3578,4284,4207,4767],
+      sales:  [21836,21789,29947,26332,23495,20487,20286],
+      sales25:[10415,11124,14454,14702,13737,11970,12901],
+      acos:   [21.43,20.62,21.44,20.77,21.14,22.15,28.51],
+      acos25: [31.52,29.85,23.56,24.33,31.19,35.14,36.95],
+      roas:   [4.67,4.85,4.66,4.81,4.73,4.52,3.51],
+      roas25: [3.17,3.35,4.24,4.11,3.21,2.85,2.71],
+      tacos:  [6.54,7.56,8.7,8.43,7.82,7.89,11.21],
+      tacos25:[12.02,11.27,8.52,8.68,10.63,12.19,12.94],
+      orders: [3488,3742,5055,4198,3998,3183,3352],
+      orders25:[2212,2104,2484,2387,2276,2014,2428],
+      impr:   [2312311,2713927,3038428,2202315,2658361,2522158,3273973],
+      impr25: [1693868,1887815,1987575,1990933,3124721,2297612,2062137]
     }
   },
   it: {
-    sellIn:    [654,382,2311,1326,1024,1734],
-    sellIn25:  [1410,384,1268,4788,1759,1273],
-    sellOut:   [3195,3442,5344,3647,4190,3482],
-    sellOut25: [1922,1838,2096,2085,1501,1796],
-    units:     [387,405,622,439,502,506],
-    units25:   [233,276,327,326,201,255],
-    ticket:    [8.25,8.5,8.59,8.31,8.35,6.88],
-    ticket25:  [8.25,6.66,6.41,6.4,7.47,7.04],
-    target:    [2538,3692,4446,4063,3778,3095],
-    sessions:  [5282,5175,7459,5588,5938,5762],
-    sessions25:[4951,3696,4932,4212,3563,4153],
-    conv:      [7.33,7.83,8.34,7.86,8.45,8.78],
-    conv25:    [4.99,8.28,6.61,7.98,5.64,6.14],
+    sellIn:    [654,382,2311,1326,1024,1734,1753],
+    sellIn25:  [1410,384,1268,4788,1759,1273,1001],
+    sellOut:   [3195,3442,5344,3647,4190,3482,3576],
+    sellOut25: [1922,1838,2096,2085,1501,1796,2377],
+    units:     [387,405,622,439,502,506,496],
+    units25:   [233,276,327,326,201,255,359],
+    ticket:    [8.25,8.5,8.59,8.31,8.35,6.88,7.21],
+    ticket25:  [8.25,6.66,6.41,6.4,7.47,7.04,6.62],
+    target:    [2538,3692,4446,4063,3778,3095,4048],
+    sessions:  [5282,5175,7459,5588,5938,5762,5895],
+    sessions25:[4951,3696,4932,4212,3563,4153,4988],
+    conv:      [7.33,7.83,8.34,7.86,8.45,8.78,8.41],
+    conv25:    [4.99,8.28,6.61,7.98,5.64,6.14,7.2],
     ppc: {
-      spend:  [1344,1107,1925,1573,1541,1312],
-      spend25:[1229,743,1248,1165,847,995],
-      sales:  [1935,1846,2935,2330,2437,1803],
-      sales25:[1297,1197,1290,1268,629,1300],
-      acos:   [69.48,59.95,65.59,67.49,63.25,72.76],
-      acos25: [94.76,62.07,96.79,91.81,134.52,76.5],
-      roas:   [1.44,1.67,1.52,1.48,1.58,1.37],
-      roas25: [1.06,1.61,1.03,1.09,0.74,1.31],
-      tacos:  [42.08,32.16,36.02,43.13,36.78,37.68],
-      tacos25:[67.89,43.59,59.55,55.85,56.41,55.36],
-      orders: [203,188,314,242,257,245],
-      orders25:[146,130,168,154,71,135],
-      impr:   [641613,349759,549882,548638,519708,618207],
-      impr25: [838488,545036,996316,688452,615935,674662]
+      spend:  [1344,1107,1925,1573,1541,1312,1417],
+      spend25:[1229,743,1248,1165,847,995,1792],
+      sales:  [1935,1846,2935,2330,2437,1803,1882],
+      sales25:[1297,1197,1290,1268,629,1300,1618],
+      acos:   [69.48,59.95,65.59,67.49,63.25,72.76,75.28],
+      acos25: [94.76,62.07,96.79,91.81,134.52,76.5,110.76],
+      roas:   [1.44,1.67,1.52,1.48,1.58,1.37,1.33],
+      roas25: [1.06,1.61,1.03,1.09,0.74,1.31,0.9],
+      tacos:  [42.08,32.16,36.02,43.13,36.78,37.68,39.62],
+      tacos25:[67.89,43.59,59.55,55.85,56.41,55.36,75.4],
+      orders: [203,188,314,242,257,245,237],
+      orders25:[146,130,168,154,71,135,191],
+      impr:   [641613,349759,549882,548638,519708,618207,681398],
+      impr25: [838488,545036,996316,688452,615935,674662,1402980]
     }
   },
   de: {
-    sellIn:    [2708,386,1336,814,666,3265],
-    sellIn25:  [863,2392,1386,4801,1655,1908],
-    sellOut:   [3821,2805,2500,2696,1907,1608],
-    sellOut25: [1923,1668,2491,3255,3133,2901],
-    units:     [757,505,263,278,183,159],
-    units25:   [398,265,481,589,760,735],
-    ticket:    [5.05,5.56,9.51,9.7,10.42,10.11],
-    ticket25:  [4.83,6.29,5.18,5.53,4.12,3.95],
-    target:    [4133,4400,4500,4133,4800,3067],
-    sessions:  [1997,1330,2370,1617,1549,1477],
-    sessions25:[653,824,1187,1521,1445,1855],
-    conv:      [37.91,37.97,11.1,17.19,11.81,10.77],
-    conv25:    [60.95,32.16,40.52,38.72,52.6,39.62],
+    sellIn:    [2708,386,1336,814,666,3265,801],
+    sellIn25:  [863,2392,1386,4801,1655,1908,2196],
+    sellOut:   [3821,2805,2500,2696,1907,1608,2020],
+    sellOut25: [1923,1668,2491,3255,3133,2901,3261],
+    units:     [757,505,263,278,183,159,209],
+    units25:   [398,265,481,589,760,735,622],
+    ticket:    [5.05,5.56,9.51,9.7,10.42,10.11,9.66],
+    ticket25:  [4.83,6.29,5.18,5.53,4.12,3.95,5.24],
+    target:    [4133,4400,4500,4133,4800,3067,3300],
+    sessions:  [1997,1330,2370,1617,1549,1477,1698],
+    sessions25:[653,824,1187,1521,1445,1855,1850],
+    conv:      [37.91,37.97,11.1,17.19,11.81,10.77,12.31],
+    conv25:    [60.95,32.16,40.52,38.72,52.6,39.62,33.62],
     ppc: {
-      spend:  [1274,619,2261,1757,1216,852],
-      spend25:[497,430,923,1464,1093,1150],
-      sales:  [1763,1073,2478,2516,1737,959],
-      sales25:[751,691,1077,2046,1450,1268],
-      acos:   [72.27,57.65,91.26,69.85,70.0,88.87],
-      acos25: [66.17,62.31,85.72,71.56,75.37,90.72],
-      roas:   [1.38,1.73,1.1,1.43,1.43,1.13],
-      roas25: [1.51,1.6,1.17,1.4,1.33,1.1],
-      tacos:  [33.34,22.06,90.47,65.17,63.78,53.03],
-      tacos25:[124.71,56.8,37.05,44.98,34.89,39.64],
-      orders: [175,125,267,270,185,102],
-      orders25:[91,78,146,251,192,165],
-      impr:   [492828,284201,692408,421397,387684,336941],
-      impr25: [388991,306139,464425,540629,387633,562736]
+      spend:  [1274,619,2261,1757,1216,852,789],
+      spend25:[497,430,923,1464,1093,1150,1779],
+      sales:  [1763,1073,2478,2516,1737,959,1189],
+      sales25:[751,691,1077,2046,1450,1268,1816],
+      acos:   [72.27,57.65,91.26,69.85,70.0,88.87,66.36],
+      acos25: [66.17,62.31,85.72,71.56,75.37,90.72,97.97],
+      roas:   [1.38,1.73,1.1,1.43,1.43,1.13,1.51],
+      roas25: [1.51,1.6,1.17,1.4,1.33,1.1,1.02],
+      tacos:  [33.34,22.06,90.47,65.17,63.78,53.03,39.07],
+      tacos25:[124.71,56.8,37.05,44.98,34.89,39.64,54.54],
+      orders: [175,125,267,270,185,102,110],
+      orders25:[91,78,146,251,192,165,212],
+      impr:   [492828,284201,692408,421397,387684,336941,248599],
+      impr25: [388991,306139,464425,540629,387633,562736,802524]
     }
   }
 };
 
 const PPC_CAT_ES = [
-  {label:'🌿 Marca',        gasto:1207.58, ventas:6707.31, acos:18.00, roas:5.55, pedidos:981, momVentas:-3.06,  yoyVentas:147.70, momGasto:-0.57,  yoyGasto:48.85},
-  {label:'🩹 Parches Acné', gasto:1451.58, ventas:5010.83, acos:28.97, roas:3.45, pedidos:864, momVentas:-31.97, yoyVentas:11.73,  momGasto:-53.39, yoyGasto:14.33},
-  {label:'✨ Skin Care',    gasto:873.27,  ventas:3572.88, acos:24.44, roas:4.09, pedidos:634, momVentas:-16.31, yoyVentas:312.98, momGasto:-16.83, yoyGasto:-3.13},
-  {label:'🧦 Calcetines',   gasto:447.41,  ventas:2306.24, acos:19.40, roas:5.15, pedidos:264, momVentas:108.56, yoyVentas:-15.30, momGasto:90.27,  yoyGasto:-48.21},
-  {label:'👁️ Parches Ojos', gasto:150.60,  ventas:381.31,  acos:39.50, roas:2.53, pedidos:58,  momVentas:-14.03, yoyVentas:-65.17, momGasto:-24.86, yoyGasto:-51.91},
-  {label:'🎯 Parches Frente', gasto:329.86, ventas:500.50, acos:65.91, roas:1.52, pedidos:54,  momVentas:-8.75,  yoyVentas:null,   momGasto:151.65, yoyGasto:null},
-  {label:'📦 Packs/Kits',   gasto:26.26,   ventas:44.64,   acos:58.83, roas:1.70, pedidos:5,   momVentas:-68.65, yoyVentas:-52.74, momGasto:-14.21, yoyGasto:-44.20},
+  {label:'🌿 Marca',          gasto:1500.19, ventas:6759.55, acos:22.19, roas:4.51, pedidos:1052, momVentas:0.78,   yoyVentas:97.15,  momGasto:24.23, yoyGasto:58.84},
+  {label:'🩹 Parches Acné',   gasto:1480.61, ventas:4788.59, acos:30.92, roas:3.23, pedidos:856,  momVentas:-4.44,  yoyVentas:-6.88,  momGasto:2.00,  yoyGasto:-15.86},
+  {label:'✨ Skin Care',      gasto:1589.74, ventas:5284.41, acos:30.08, roas:3.32, pedidos:1036, momVentas:47.90,  yoyVentas:275.61, momGasto:82.04, yoyGasto:85.33},
+  {label:'🧦 Calcetines',     gasto:546.69,  ventas:2333.61, acos:23.43, roas:4.27, pedidos:268,  momVentas:1.19,   yoyVentas:14.89,  momGasto:22.19, yoyGasto:-34.89},
+  {label:'👁️ Parches Ojos',   gasto:145.09,  ventas:240.43,  acos:60.35, roas:1.66, pedidos:37,   momVentas:-36.95, yoyVentas:-69.86, momGasto:-3.66, yoyGasto:-53.95},
+  {label:'🎯 Parches Frente', gasto:347.48,  ventas:485.21,  acos:71.61, roas:1.40, pedidos:48,   momVentas:-3.05,  yoyVentas:null,   momGasto:5.34,  yoyGasto:null},
+  {label:'📦 Packs/Kits',     gasto:34.89,   ventas:205.69,  acos:16.96, roas:5.90, pedidos:20,   momVentas:360.78, yoyVentas:118.73, momGasto:32.86, yoyGasto:-30.39},
 ];
 
 const CAT_LABELS = [
@@ -666,91 +667,97 @@ const CAT_LABELS = [
 // Nota: Pack, Discos y Guantes comparten ASINs con otras familias (son el mismo producto también vendido/contado
 // dentro de un pack) -> la suma de las 9 categorías supera el Sell-Out real. Es así en el Excel de origen, no es un error.
 const CAT_DATA = {
+  6: { sales:[35213,1448,1121,5654,17815,133,294,3900,5725], units:[7263,302,108,1103,1644,50,72,288,2071] },
   5: { sales:[38066,2035,1001,6369,17852,216,330,4269,5792], units:[7381,378,97,1180,1622,69,84,358,2222] },
   4: { sales:[45314,2602,1907,3130,19959,211,327,3935,6038], units:[9359,478,147,572,1863,67,83,291,2552] },
 };
 
 const ASIN_DATA = {
   0: [ // 🩹 Parches Acné
-    {asin:'B0B2912ZZ5', name:'Parches Acné 18 uds', s26:16767.04, u26:5210, sPrev:21145.98, uPrev:6831, s25:null, u25:null},
-    {asin:'B0D17QX68Y', name:'Pack SOS Granos 72 uds', s26:15753.1, u26:1372, sPrev:17022.89, uPrev:1472, s25:null, u25:null},
-    {asin:'B0FLD8XB1F', name:'Microdart Patch 12 uds', s26:4263.29, u26:535, sPrev:5320.69, uPrev:649, s25:null, u25:null},
-    {asin:'B0F5XB5BRH', name:'Parches SOS XL 5 uds', s26:805.25, u26:122, sPrev:970.26, uPrev:147, s25:null, u25:null},
-    {asin:'B0D17RLXN2', name:'Parches FUN 15 uds', s26:318.21, u26:103, sPrev:603.29, uPrev:209, s25:null, u25:null},
-    {asin:'B071Y5DQRT', name:'Tiras Limpieza Puntos Negros Nariz', s26:142.33, u26:34, sPrev:250.88, uPrev:51, s25:null, u25:null},
-    {asin:'B0H2H8NHFN', name:'Parches Pride 15 uds', s26:16.32, u26:5, sPrev:null, uPrev:null, s25:null, u25:null, isNew:true},
+    {asin:'B0B2912ZZ5', name:'Parches Acné 18 uds', s26:16017.91, u26:5227, sPrev:16767.04, uPrev:5210, s25:null, u25:null},
+    {asin:'B0D17QX68Y', name:'Pack SOS Granos 72 uds', s26:13334.11, u26:1118, sPrev:15753.1, uPrev:1372, s25:null, u25:null},
+    {asin:'B0FLD8XB1F', name:'Microdart Patch 12 uds', s26:4459.47, u26:574, sPrev:4263.29, uPrev:535, s25:null, u25:null},
+    {asin:'B0F5XB5BRH', name:'Parches SOS XL 5 uds', s26:734.72, u26:122, sPrev:805.25, uPrev:122, s25:null, u25:null},
+    {asin:'B0D17RLXN2', name:'Parches FUN 15 uds', s26:370.11, u26:146, sPrev:318.21, uPrev:103, s25:null, u25:null},
+    {asin:'B071Y5DQRT', name:'Tiras Limpieza Puntos Negros Nariz', s26:273.59, u26:69, sPrev:142.33, uPrev:34, s25:null, u25:null},
+    {asin:'B0H2H8NHFN', name:'Parches Pride 15 uds', s26:22.83, u26:7, sPrev:16.32, uPrev:5, s25:null, u25:null},
+    {asin:'B0GPDKRMRD', name:'Parches Grano Ácido Salicílico 33 uds', s26:182.82, u26:28, sPrev:null, uPrev:null, s25:null, u25:null, isNew:true},
   ],
   1: [ // 👁️ Parches Ojos
-    {asin:'B0FNRKY43M', name:'Parches Ojos 99% Colágeno + Bruma', s26:788.12, u26:67, sPrev:1013.46, uPrev:82, s25:null, u25:null},
-    {asin:'B0CZP86XWV', name:'Parches Ojos Piel Madura', s26:452.36, u26:53, sPrev:579.2, uPrev:64, s25:null, u25:null},
-    {asin:'B09RN3G8CY', name:'Parches Ojos Antiedad Niacinamida', s26:369.44, u26:150, sPrev:456.97, uPrev:185, s25:null, u25:null},
-    {asin:'B0C9J9PPTZ', name:'Pack 10 Parches Ojos Tisú', s26:187.41, u26:11, sPrev:221.98, uPrev:13, s25:null, u25:null},
-    {asin:'B0C3MR4PCK', name:'Parches Ojos Iluminadores Anti-Fatiga', s26:182.89, u26:75, sPrev:261.03, uPrev:107, s25:null, u25:null},
-    {asin:'B07C2NFSSQ', name:'Parches Ojos Foil Divine 2 uds', s26:54.6, u26:22, sPrev:69.42, uPrev:27, s25:null, u25:null},
+    {asin:'B0FNRKY43M', name:'Parches Ojos 99% Colágeno + Bruma', s26:442.68, u26:36, sPrev:788.12, uPrev:67, s25:null, u25:null},
+    {asin:'B0CZP86XWV', name:'Parches Ojos Piel Madura', s26:374.66, u26:44, sPrev:452.36, uPrev:53, s25:null, u25:null},
+    {asin:'B09RN3G8CY', name:'Parches Ojos Antiedad Niacinamida', s26:268.38, u26:109, sPrev:369.44, uPrev:150, s25:null, u25:null},
+    {asin:'B0C9J9PPTZ', name:'Pack 10 Parches Ojos Tisú', s26:100.33, u26:6, sPrev:187.41, uPrev:11, s25:null, u25:null},
+    {asin:'B0C3MR4PCK', name:'Parches Ojos Iluminadores Anti-Fatiga', s26:214.68, u26:88, sPrev:182.89, uPrev:75, s25:null, u25:null},
+    {asin:'B07C2NFSSQ', name:'Parches Ojos Foil Divine 2 uds', s26:46.93, u26:19, sPrev:54.6, uPrev:22, s25:null, u25:null},
+    {asin:'B0GKPX85PX', name:'Parches Ojos Cafeína Ojos Cansados', s26:56.04, u26:46, sPrev:null, uPrev:null, s25:null, u25:null, isNew:true},
   ],
   2: [ // 🎯 Parches Frente
-    {asin:'B0GT5FJH84', name:'Parches Frente 99% Colágeno', s26:1000.56, u26:97, sPrev:1907.31, uPrev:147, s25:null, u25:null},
+    {asin:'B0GT5FJH84', name:'Parches Frente 99% Colágeno', s26:1121.15, u26:108, sPrev:1000.56, uPrev:97, s25:null, u25:null},
   ],
   3: [ // 🧦 Calcetines
-    {asin:'B0091PF37U', name:'Calcetines Peeling Exfoliantes', s26:3098.86, u26:377, sPrev:1580.5, uPrev:193, s25:null, u25:null},
-    {asin:'B00HU7LHDU', name:'Calcetines Mascarilla Reparadores Melocotón', s26:2143.12, u26:524, sPrev:920.24, uPrev:225, s25:null, u25:null},
-    {asin:'B00ZJT3VPS', name:'Calcetines Nutritivos Argán y Macadamia', s26:1127.05, u26:279, sPrev:629.29, uPrev:154, s25:null, u25:null},
+    {asin:'B0091PF37U', name:'Calcetines Peeling Exfoliantes', s26:2308.6, u26:281, sPrev:3098.86, uPrev:377, s25:null, u25:null},
+    {asin:'B00HU7LHDU', name:'Calcetines Mascarilla Reparadores Melocotón', s26:2049.25, u26:502, sPrev:2143.12, uPrev:524, s25:null, u25:null},
+    {asin:'B00ZJT3VPS', name:'Calcetines Nutritivos Argán y Macadamia', s26:1296.03, u26:320, sPrev:1127.05, uPrev:279, s25:null, u25:null},
     {asin:'B00HU7LHUI', name:'Calcetines Relajantes Menta (ref. sin ventas)', s26:0.0, u26:0, sPrev:0.0, uPrev:0, s25:null, u25:null},
   ],
   4: [ // 📦 Pack — mismos ASINs que su categoría base (Mascarillas/Acné/Ojos/Skincare); el Excel los cuenta también aquí
-    {asin:'B0D17QX68Y', name:'Pack SOS Granos 72 uds', s26:15753.1, u26:1372, sPrev:17022.89, uPrev:1472, s25:null, u25:null},
-    {asin:'B0C9JF6HZV', name:'Kit 6 Mascarillas Natural Extracts', s26:710.16, u26:86, sPrev:951.96, uPrev:116, s25:null, u25:null},
-    {asin:'B0DYL9C712', name:'Pack Rutina Antiacné', s26:352.81, u26:7, sPrev:705.61, uPrev:14, s25:null, u25:null},
-    {asin:'B0C9JLL55W', name:'Pack Cuidado Facial 7 Mascarillas', s26:320.36, u26:19, sPrev:299.51, uPrev:18, s25:null, u25:null},
-    {asin:'B0D17RLXN2', name:'Parches FUN 15 uds', s26:318.21, u26:103, sPrev:603.29, uPrev:209, s25:null, u25:null},
-    {asin:'B0C9J9PPTZ', name:'Pack 10 Parches Ojos Tisú', s26:187.41, u26:11, sPrev:221.98, uPrev:13, s25:null, u25:null},
-    {asin:'B0F6CST9YM', name:'Travel Kit Cuidado Facial', s26:167.44, u26:20, sPrev:131.92, uPrev:19, s25:null, u25:null},
-    {asin:'B0D92RMKS8', name:'Kit Esenciales de Viaje', s26:42.95, u26:4, sPrev:21.48, uPrev:2, s25:null, u25:null},
+    {asin:'B0D17QX68Y', name:'Pack SOS Granos 72 uds', s26:13334.11, u26:1118, sPrev:15753.1, uPrev:1372, s25:null, u25:null},
+    {asin:'B0C9JF6HZV', name:'Kit 6 Mascarillas Natural Extracts', s26:801.03, u26:97, sPrev:710.16, uPrev:86, s25:null, u25:null},
+    {asin:'B0DYL9C712', name:'Pack Rutina Antiacné', s26:952.77, u26:19, sPrev:352.81, uPrev:7, s25:null, u25:null},
+    {asin:'B0C9JLL55W', name:'Pack Cuidado Facial 7 Mascarillas', s26:303.7, u26:18, sPrev:320.36, uPrev:19, s25:null, u25:null},
+    {asin:'B0D17RLXN2', name:'Parches FUN 15 uds', s26:370.11, u26:146, sPrev:318.21, uPrev:103, s25:null, u25:null},
+    {asin:'B0C9J9PPTZ', name:'Pack 10 Parches Ojos Tisú', s26:100.33, u26:6, sPrev:187.41, uPrev:11, s25:null, u25:null},
+    {asin:'B0F6CST9YM', name:'Travel Kit Cuidado Facial', s26:53.86, u26:6, sPrev:167.44, uPrev:20, s25:null, u25:null},
+    {asin:'B0D92RMKS8', name:'Kit Esenciales de Viaje', s26:43.38, u26:4, sPrev:42.95, uPrev:4, s25:null, u25:null},
+    {asin:'B0F9L9BTYH', name:'Pack Antiimperfecciones (Mascarilla + Discos + Parches SOS)', s26:120.49, u26:7, sPrev:null, uPrev:null, s25:null, u25:null, isNew:true},
   ],
   5: [ // 💿 Discos
-    {asin:'B0BT1YV6N1', name:'Discos Tónico Exfoliantes Iluminadores', s26:123.99, u26:40, sPrev:139.48, uPrev:45, s25:null, u25:null},
-    {asin:'B0BT1Z5Y4F', name:'Discos Tónico Calmantes Cica y Arándanos', s26:92.48, u26:29, sPrev:71.73, uPrev:22, s25:null, u25:null},
+    {asin:'B0BT1YV6N1', name:'Discos Tónico Exfoliantes Iluminadores', s26:61.97, u26:20, sPrev:123.99, uPrev:40, s25:null, u25:null},
+    {asin:'B0BT1Z5Y4F', name:'Discos Tónico Calmantes Cica y Arándanos', s26:71.36, u26:30, sPrev:92.48, uPrev:29, s25:null, u25:null},
   ],
   6: [ // 🧤 Guantes
-    {asin:'B00HU7M1L2', name:'Guantes Mascarilla Hidratación Intensa', s26:283.68, u26:72, sPrev:241.86, uPrev:60, s25:null, u25:null},
-    {asin:'B0198L5OAW', name:'Guantes Nutritivos Argán y Macadamia', s26:46.02, u26:12, sPrev:84.83, uPrev:23, s25:null, u25:null},
+    {asin:'B00HU7M1L2', name:'Guantes Mascarilla Hidratación Intensa', s26:269.17, u26:66, sPrev:283.68, uPrev:72, s25:null, u25:null},
+    {asin:'B0198L5OAW', name:'Guantes Nutritivos Argán y Macadamia', s26:25.05, u26:6, sPrev:46.02, uPrev:12, s25:null, u25:null},
     {asin:'B09C62BDD5', name:'Guantes (ref. sin ventas)', s26:0.0, u26:0, sPrev:0.0, uPrev:0, s25:null, u25:null},
   ],
   7: [ // ✨ Skin Care
-    {asin:'B0DPL4DTZR', name:'Discos Tónico Exfoliantes', s26:1489.05, u26:114, sPrev:1262.56, uPrev:90, s25:null, u25:null},
-    {asin:'B0DPL8L3KB', name:'Limpiador Purificante Antiimperfecciones', s26:893.24, u26:124, sPrev:738.37, uPrev:103, s25:null, u25:null},
-    {asin:'B0DPLBVHD3', name:'Sérum Antiimperfecciones Salicílico', s26:881.46, u26:63, sPrev:794.65, uPrev:54, s25:null, u25:null},
-    {asin:'B0DPL5SH8K', name:'Crema Oil Control Zinc PCA', s26:652.83, u26:50, sPrev:434.05, uPrev:30, s25:null, u25:null},
-    {asin:'B0DYL9C712', name:'Pack Rutina Antiacné', s26:352.81, u26:7, sPrev:705.61, uPrev:14, s25:null, u25:null},
+    {asin:'B0DPL4DTZR', name:'Discos Tónico Exfoliantes', s26:1180.2, u26:99, sPrev:1489.05, uPrev:114, s25:null, u25:null},
+    {asin:'B0DPL8L3KB', name:'Limpiador Purificante Antiimperfecciones', s26:708.54, u26:89, sPrev:893.24, uPrev:124, s25:null, u25:null},
+    {asin:'B0DPLBVHD3', name:'Sérum Antiimperfecciones Salicílico', s26:775.26, u26:61, sPrev:881.46, uPrev:63, s25:null, u25:null},
+    {asin:'B0DPL5SH8K', name:'Crema Oil Control Zinc PCA', s26:283.5, u26:20, sPrev:652.83, uPrev:50, s25:null, u25:null},
+    {asin:'B0DYL9C712', name:'Pack Rutina Antiacné', s26:952.77, u26:19, sPrev:352.81, uPrev:7, s25:null, u25:null},
   ],
   8: [ // 🎭 Máscaras
-    {asin:'B0D17RRJP4', name:'Mascarilla Anti-Imperfecciones', s26:1411.51, u26:1042, sPrev:1565.68, uPrev:1155, s25:null, u25:null},
-    {asin:'B0C9JF6HZV', name:'Kit 6 Mascarillas Natural Extracts', s26:710.16, u26:86, sPrev:951.96, uPrev:116, s25:null, u25:null},
-    {asin:'B0H1H6WGHD', name:'Mascarilla Hidrogel Glass Skin Colágeno', s26:590.1, u26:120, sPrev:null, uPrev:null, s25:null, u25:null, isNew:true},
-    {asin:'B0H1GVVJ67', name:'Mascarilla Hidrogel Glass Skin PDRN', s26:526.06, u26:107, sPrev:null, uPrev:null, s25:null, u25:null, isNew:true},
-    {asin:'B092D8V3RN', name:'Mascarilla Tisú Reafirmante Anti-Edad', s26:394.62, u26:121, sPrev:394.59, uPrev:121, s25:null, u25:null},
-    {asin:'B0C9JLL55W', name:'Pack Cuidado Facial 7 Mascarillas', s26:320.36, u26:19, sPrev:299.51, uPrev:18, s25:null, u25:null},
-    {asin:'B092DB5F7V', name:'Mascarilla Rellenadora & Anti-Aging', s26:196.34, u26:48, sPrev:298.58, uPrev:73, s25:null, u25:null},
-    {asin:'B0DZ762GY7', name:'Mascarilla Reparadora Barrera', s26:193.25, u26:61, sPrev:239.62, uPrev:97, s25:null, u25:null},
-    {asin:'B0CKC1GZ6Z', name:'Mascarilla Antiedad Global (Rosa Mosqueta)', s26:187.78, u26:95, sPrev:214.72, uPrev:112, s25:null, u25:null},
-    {asin:'B01MUQSEXW', name:'Mascarilla Facial y Cuello Antiedad', s26:179.97, u26:44, sPrev:335.38, uPrev:82, s25:null, u25:null},
-    {asin:'B092DC18H3', name:'Mascarilla Peeling Ácido Glicólico', s26:153.27, u26:47, sPrev:208.57, uPrev:64, s25:null, u25:null},
-    {asin:'B09RMHC7WC', name:'Mascarilla Purificante Árbol de Té', s26:130.15, u26:70, sPrev:125.82, uPrev:68, s25:null, u25:null},
-    {asin:'B0DW4H9FML', name:'Mascarilla Hidratante Calmante Avena', s26:120.81, u26:61, sPrev:282.16, uPrev:145, s25:null, u25:null},
-    {asin:'B07YN74KV2', name:'Mascarilla Reequilibrante Carbón', s26:118.11, u26:36, sPrev:79.56, uPrev:24, s25:null, u25:null},
-    {asin:'B0DZ71BDVV', name:'Mascarilla Iluminadora', s26:82.34, u26:28, sPrev:229.56, uPrev:94, s25:null, u25:null},
-    {asin:'B00A1AY8A2', name:'Mascarilla Recomfortante Aloe Vera', s26:75.5, u26:21, sPrev:71.73, uPrev:22, s25:null, u25:null},
-    {asin:'B09RMW97JK', name:'Mascarilla Hidratante Aguacate', s26:65.1, u26:35, sPrev:233.67, uPrev:126, s25:null, u25:null},
-    {asin:'B09RMKJS1X', name:'Mascarilla Antiedad Noni', s26:63.23, u26:34, sPrev:98.57, uPrev:53, s25:null, u25:null},
-    {asin:'B00DY02YMK', name:'Mascarilla Iluminadora Vit. C', s26:58.8, u26:21, sPrev:95.25, uPrev:38, s25:null, u25:null},
-    {asin:'B0GZL4TYQL', name:'Mascarilla Moments Post Workout', s26:43.83, u26:30, sPrev:null, uPrev:null, s25:null, u25:null, isNew:true},
-    {asin:'B09RMB3ZNZ', name:'Mascarilla Iluminadora Pitahaya', s26:40.9, u26:22, sPrev:94.34, uPrev:51, s25:null, u25:null},
-    {asin:'B0GZL89JMH', name:'Mascarilla Moments Calmante', s26:33, u26:25, sPrev:null, uPrev:null, s25:null, u25:null, isNew:true},
-    {asin:'B0C6TPPQQR', name:'Mascarilla Aftersun Calmante', s26:29.28, u26:12, sPrev:60.99, uPrev:25, s25:null, u25:null},
-    {asin:'B0C6TRJD9L', name:'Mascarilla Aftersun Nutritiva', s26:26.84, u26:11, sPrev:131.75, uPrev:54, s25:null, u25:null},
-    {asin:'B0CKC2HKBX', name:'Mascarilla Peeling Papaya', s26:24.4, u26:13, sPrev:26.24, uPrev:14, s25:null, u25:null},
-    {asin:'B0GZKYWQBT', name:'Mascarilla Moments Jet Lag', s26:16.5, u26:13, sPrev:null, uPrev:null, s25:null, u25:null, isNew:true},
+    {asin:'B0D17RRJP4', name:'Mascarilla Anti-Imperfecciones', s26:1242.42, u26:791, sPrev:1411.51, uPrev:1042, s25:null, u25:null},
+    {asin:'B0C9JF6HZV', name:'Kit 6 Mascarillas Natural Extracts', s26:801.03, u26:97, sPrev:710.16, uPrev:86, s25:null, u25:null},
+    {asin:'B0H1H6WGHD', name:'Mascarilla Hidrogel Glass Skin Colágeno', s26:447.37, u26:91, sPrev:590.1, uPrev:120, s25:null, u25:null},
+    {asin:'B0H1GVVJ67', name:'Mascarilla Hidrogel Glass Skin PDRN', s26:472.34, u26:96, sPrev:526.06, uPrev:107, s25:null, u25:null},
+    {asin:'B092D8V3RN', name:'Mascarilla Tisú Reafirmante Anti-Edad', s26:443.5, u26:136, sPrev:394.62, uPrev:121, s25:null, u25:null},
+    {asin:'B0C9JLL55W', name:'Pack Cuidado Facial 7 Mascarillas', s26:303.7, u26:18, sPrev:320.36, uPrev:19, s25:null, u25:null},
+    {asin:'B092DB5F7V', name:'Mascarilla Rellenadora & Anti-Aging', s26:220.89, u26:54, sPrev:196.34, uPrev:48, s25:null, u25:null},
+    {asin:'B0DZ762GY7', name:'Mascarilla Reparadora Barrera', s26:143.47, u26:44, sPrev:193.25, uPrev:61, s25:null, u25:null},
+    {asin:'B0CKC1GZ6Z', name:'Mascarilla Antiedad Global (Rosa Mosqueta)', s26:232.74, u26:118, sPrev:187.78, uPrev:95, s25:null, u25:null},
+    {asin:'B01MUQSEXW', name:'Mascarilla Facial y Cuello Antiedad', s26:134.97, u26:33, sPrev:179.97, uPrev:44, s25:null, u25:null},
+    {asin:'B092DC18H3', name:'Mascarilla Peeling Ácido Glicólico', s26:142.85, u26:44, sPrev:153.27, uPrev:47, s25:null, u25:null},
+    {asin:'B09RMHC7WC', name:'Mascarilla Purificante Árbol de Té', s26:83.4, u26:45, sPrev:130.15, uPrev:70, s25:null, u25:null},
+    {asin:'B0DW4H9FML', name:'Mascarilla Hidratante Calmante Avena', s26:120.79, u26:61, sPrev:120.81, uPrev:61, s25:null, u25:null},
+    {asin:'B07YN74KV2', name:'Mascarilla Reequilibrante Carbón', s26:35.86, u26:11, sPrev:118.11, uPrev:36, s25:null, u25:null},
+    {asin:'B0DZ71BDVV', name:'Mascarilla Iluminadora', s26:133.67, u26:41, sPrev:82.34, uPrev:28, s25:null, u25:null},
+    {asin:'B00A1AY8A2', name:'Mascarilla Recomfortante Aloe Vera', s26:83.62, u26:23, sPrev:75.5, uPrev:21, s25:null, u25:null},
+    {asin:'B09RMW97JK', name:'Mascarilla Hidratante Aguacate', s26:150.61, u26:81, sPrev:65.1, uPrev:35, s25:null, u25:null},
+    {asin:'B09RMKJS1X', name:'Mascarilla Antiedad Noni', s26:91.05, u26:49, sPrev:63.23, uPrev:34, s25:null, u25:null},
+    {asin:'B00DY02YMK', name:'Mascarilla Iluminadora Vit. C', s26:121.21, u26:47, sPrev:58.8, uPrev:21, s25:null, u25:null},
+    {asin:'B0GZL4TYQL', name:'Mascarilla Moments Post Workout', s26:56.55, u26:41, sPrev:43.83, uPrev:30, s25:null, u25:null},
+    {asin:'B09RMB3ZNZ', name:'Mascarilla Iluminadora Pitahaya', s26:24.18, u26:13, sPrev:40.9, uPrev:22, s25:null, u25:null},
+    {asin:'B0GZL89JMH', name:'Mascarilla Moments Calmante', s26:19.69, u26:16, sPrev:33.0, uPrev:25, s25:null, u25:null},
+    {asin:'B0C6TPPQQR', name:'Mascarilla Aftersun Calmante', s26:37.13, u26:15, sPrev:29.28, uPrev:12, s25:null, u25:null},
+    {asin:'B0C6TRJD9L', name:'Mascarilla Aftersun Nutritiva', s26:12.06, u26:5, sPrev:26.84, uPrev:11, s25:null, u25:null},
+    {asin:'B0CKC2HKBX', name:'Mascarilla Peeling Papaya', s26:48.54, u26:32, sPrev:24.4, uPrev:13, s25:null, u25:null},
+    {asin:'B0GZKYWQBT', name:'Mascarilla Moments Jet Lag', s26:95.64, u26:65, sPrev:16.5, uPrev:13, s25:null, u25:null},
     {asin:'B07XLLJH2V', name:'Mascarilla Facial Nocturna Cannabis', s26:0.0, u26:0, sPrev:0.0, uPrev:0, s25:null, u25:null},
+    {asin:'B0H4Z3K59H', name:'Mascarilla Tisú Fito-Retinol Firmeza 3 uds', s26:26.12, u26:4, sPrev:null, uPrev:null, s25:null, u25:null, isNew:true},
+    {asin:'B071RDHVM3', name:'Mascarilla Facial Peel Off Limpieza Profunda', s26:8.18, u26:2, sPrev:null, uPrev:null, s25:null, u25:null, isNew:true},
   ],
 };
 
@@ -918,10 +925,10 @@ function renderMarketKPIs(mkt) {
     const ytdSO = sum(d.sellOut), ytdSI = sum(d.sellIn), ytdUn = sum(d.units), ytdTgt = sum(d.target);
     const last = MONTHS.length - 1;
     const yoyLast = pctDiff(d.sellOut[last], d.sellOut25[last]);
-    html = kpiCard('Sell-In YTD', fmtE(ytdSI), '<span class="neutral">Ene–Jun 2026</span>') +
+    html = kpiCard('Sell-In YTD', fmtE(ytdSI), `<span class="neutral">Ene–${MN[last]} 2026</span>`) +
       kpiCard('Sell-Out YTD', fmtE(ytdSO), `<span class="${yoyLast>=0?'up':'down'}">YoY ${MONTHS[last]}: ${fmtPct(yoyLast)}</span>`) +
       kpiCard('Objetivo YTD', fmtE(ytdTgt), tagPct(pctDiff(ytdSO, ytdTgt)), 'amber') +
-      kpiCard('Unidades YTD', fmt(ytdUn), '<span class="neutral">Ene–Jun 2026</span>') +
+      kpiCard('Unidades YTD', fmt(ytdUn), `<span class="neutral">Ene–${MN[last]} 2026</span>`) +
       kpiCard('Ticket Medio ('+MONTHS[last]+')', fmtP(d.ticket[last]), tagPct(pctDiff(d.ticket[last], d.ticket25[last])));
     if (mkt === 'es') { renderSessionKPIs(d, last, last>0?last-1:null); }
   } else {
@@ -1011,13 +1018,13 @@ function renderCatInsight() {
   const el = document.getElementById('insightEsCat');
   if (!el) return;
   const i = selectedMonth;
-  const dataIdx = CAT_DATA[i] ? i : 5;
+  const dataIdx = CAT_DATA[i] ? i : 6;
   const data = CAT_DATA[dataIdx];
   const total = sum(data.sales);
   let topIdx = 0; data.sales.forEach((v,idx)=>{ if (v>data.sales[topIdx]) topIdx = idx; });
   let txt = `<strong>Conclusión:</strong> <strong>${CAT_LABELS[topIdx].replace(/^[^\s]+\s/,'')}</strong> es la categoría líder con <strong>${fmt(data.sales[topIdx])} €</strong> (${((data.sales[topIdx]/total)*100).toFixed(1)}% del total analizado).`;
-  if (dataIdx === 5) {
-    const prevData = CAT_DATA[4];
+  if (dataIdx === 6) {
+    const prevData = CAT_DATA[5];
     const moms = data.sales.map((v,idx)=>pctDiff(v, prevData.sales[idx]));
     let bestIdx = 0, worstIdx = 0;
     moms.forEach((v,idx)=>{ if (v!=null && (moms[bestIdx]==null || v>moms[bestIdx])) bestIdx = idx; if (v!=null && (moms[worstIdx]==null || v<moms[worstIdx])) worstIdx = idx; });
@@ -1182,7 +1189,7 @@ function renderPpcCatTable() {
     <td>${(totGasto/totVentas*100).toFixed(1)}%</td><td>${(totVentas/totGasto).toFixed(2)}x</td>
     <td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>`;
   tbody.innerHTML = rows;
-  document.getElementById('ppcCatMonth').textContent = (selectedMonth===-1?'Junio':MONTHS[selectedMonth]) + ' 2026';
+  document.getElementById('ppcCatMonth').textContent = (selectedMonth===-1?'Julio':MONTHS[selectedMonth]) + ' 2026';
 
   destroyChart('esCat');
   charts.esCat = new Chart(document.getElementById('chartEsCat').getContext('2d'), {
@@ -1193,7 +1200,7 @@ function renderPpcCatTable() {
         {label:'Ventas Ads', data:PPC_CAT_ES.map(c=>c.ventas), backgroundColor:GREEN+'BB', borderRadius:4}
       ]},
     options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
-      plugins:{title:{display:true,text:'Gasto vs Ventas Ads por Categoría · Junio 2026',font:{size:12}},legend:{labels:{boxWidth:12}}},
+      plugins:{title:{display:true,text:'Gasto vs Ventas Ads por Categoría · Julio 2026',font:{size:12}},legend:{labels:{boxWidth:12}}},
       scales:{x:{ticks:{callback:v=>v+'€'}}}}
   });
 }
@@ -1256,9 +1263,9 @@ function closeDrilldown() {
 
 function renderCatBarCharts() {
   const i = selectedMonth;
-  const dataIdx = CAT_DATA[i] ? i : 5;
+  const dataIdx = CAT_DATA[i] ? i : 6;
   const data = CAT_DATA[dataIdx];
-  document.getElementById('catSectionMonth').textContent = (i===-1?'Junio':(CAT_DATA[i]?MONTHS[i]:'Junio')) + ' 2026' + (i!==-1 && !CAT_DATA[i] ? ' (ref. Junio, único mes con desglose)' : '');
+  document.getElementById('catSectionMonth').textContent = (i===-1?'Julio':(CAT_DATA[i]?MONTHS[i]:'Julio')) + ' 2026' + (i!==-1 && !CAT_DATA[i] ? ' (ref. Julio, único mes con desglose)' : '');
 
   const salesTotal = sum(data.sales);
   const unitsTotal = sum(data.units);
@@ -1288,12 +1295,12 @@ function renderCatBarCharts() {
     }
   });
 
-  const prevData = CAT_DATA[4];
+  const prevData = CAT_DATA[5];
   document.getElementById('catKpis').innerHTML = CAT_LABELS.map((lbl,idx)=>{
     const s26 = data.sales[idx], u26 = data.units[idx];
     const pctS = ((s26/salesTotal)*100).toFixed(1);
     let momHtml;
-    if (dataIdx === 5) {
+    if (dataIdx === 6) {
       const momS = pctDiff(s26, prevData.sales[idx]);
       const momU = pctDiff(u26, prevData.units[idx]);
       momHtml = `<span class="${momS>=0?'up':'down'}">${fmtPct(momS)} ventas</span> · <span class="${momU>=0?'up':'down'}">${fmtPct(momU)} uds</span>`;
@@ -1323,7 +1330,7 @@ function renderGlobal() {
   const totSO = esSO + itSO + deSO, totSI = esSI + itSI + deSI, totUn = esUn + itUn + deUn;
   const totTgt = esTgt + itTgt + deTgt, totSO25 = esSO25 + itSO25 + deSO25;
 
-  document.getElementById('globalMonthLabel').textContent = i === -1 ? 'YTD 2026 (Ene–Jun)' : MONTHS[i] + ' 2026';
+  document.getElementById('globalMonthLabel').textContent = i === -1 ? `YTD 2026 (Ene–${MN[MONTHS.length-1]})` : MONTHS[i] + ' 2026';
 
   const gPrevI = i > 0 ? i - 1 : null;
   const totSOPrev = gPrevI != null ? (D.es.sellOut[gPrevI]+D.it.sellOut[gPrevI]+D.de.sellOut[gPrevI]) : null;
@@ -1446,7 +1453,7 @@ function renderGlobal() {
   let peakIdx = 0; combinedByMonth.forEach((v,idx2) => { if (v > combinedByMonth[peakIdx]) peakIdx = idx2; });
   const totSOLast = combinedByMonth[lastIdx], totSOFirst = combinedByMonth[0];
   document.getElementById('insightGlobalTrend').innerHTML =
-    `<strong>Conclusión:</strong> el Sell-Out consolidado pasó de ${fmtE(totSOFirst)} en Enero a ${fmtE(totSOLast)} en Junio (${tagPct(pctDiff(totSOLast,totSOFirst))} en el semestre). ` +
+    `<strong>Conclusión:</strong> el Sell-Out consolidado pasó de ${fmtE(totSOFirst)} en Enero a ${fmtE(totSOLast)} en ${MONTHS[lastIdx]} (${tagPct(pctDiff(totSOLast,totSOFirst))} en los últimos ${MONTHS.length} meses). ` +
     `El mes de mayor facturación conjunta fue <strong>${MONTHS[peakIdx]}</strong>, con ${fmtE(combinedByMonth[peakIdx])}.`;
 }
 
@@ -1454,11 +1461,11 @@ function renderGlobal() {
 // ===========================================================
 //  FORECAST TAB (objetivos reales de la pestaña "Forecast 2026")
 // ===========================================================
-const fMonths = ['Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+const fMonths = ['Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 const forecastData = {
-  es: { targets:[52381,49845,65619,66667,78571,98214], projections:[52381,49845,65619,66667,78571,98214] },
-  it: { targets:[4048,3355,3613,4645,6387,8065],       projections:[4048,3355,3613,4645,6387,8065] },
-  de: { targets:[3300,3117,3967,5383,6900,8333],       projections:[3300,3117,3967,5383,6900,8333] },
+  es: { targets:[49845,65619,66667,78571,98214], projections:[49845,65619,66667,78571,98214] },
+  it: { targets:[3355,3613,4645,6387,8065],       projections:[3355,3613,4645,6387,8065] },
+  de: { targets:[3117,3967,5383,6900,8333],       projections:[3117,3967,5383,6900,8333] },
 };
 const ytd = { es: sum(D.es.sellOut), it: sum(D.it.sellOut), de: sum(D.de.sellOut) };
 const ANNUAL_TARGET = { es: 740012, it: 51726, de: 56033 };
@@ -1467,7 +1474,7 @@ const ANNUAL_TARGET = { es: 740012, it: 51726, de: 56033 };
 const YEAR_MONTHS = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 const SELLIN_TARGET_ES   = [48562.50,57330.00,56700.00,44995.44,45222.69,34915.84,41676.73,35845.42,43426.13,94244.30,61486.05,99612.54];
 const SELLIN_TARGET_INTL = [3675.00,3990.00,4200.00,5093.82,5119.55,3611.98,3395.88,4116.22,4219.13,6174.33,8146.69,10839.38];
-// Sell-In real disponible solo Ene-Jun 2026 (D.es/it/de.sellIn); Jul-Dic aún no reportado.
+// Sell-In real disponible Ene-Jul 2026 (D.es/it/de.sellIn); Ago-Dic aún no reportado.
 const SELLIN_REAL_ES = D.es.sellIn.slice();
 const SELLIN_REAL_INTL = D.it.sellIn.map((v,i) => v + D.de.sellIn[i]);
 
@@ -1486,9 +1493,9 @@ function renderSellInForecast() {
     if (realIntl != null) totRealIntl += realIntl;
     const totReal = (realEs != null && realIntl != null) ? realEs + realIntl : null;
     const totObj = objEs + objIntl;
-    const trClass = i === 5 ? 'highlight' : '';
+    const trClass = i === 6 ? 'highlight' : '';
     rows += `<tr class="${trClass}">
-      <td>${i === 5 ? '<strong>'+m+'</strong>' : m}</td>
+      <td>${i === 6 ? '<strong>'+m+'</strong>' : m}</td>
       <td>${realEs != null ? fmtE(realEs) : '<span class="na">Pendiente</span>'}</td>
       <td>${fmtE(objEs)}</td>
       <td>${realEs != null ? tagPct(pctDiff(realEs, objEs)) : '<span class="na">—</span>'}</td>
@@ -1503,15 +1510,15 @@ function renderSellInForecast() {
   const totTotalReal = totRealEs + totRealIntl;
   const totTotalObj = totObjEs + totObjIntl;
   rows += `<tr class="total">
-    <td>YTD (Ene-Jun) / Objetivo Total Año</td>
-    <td>${fmtE(totRealEs)}</td><td>${fmtE(SELLIN_TARGET_ES.reduce((a,v)=>a+v,0))}</td><td>${tagPct(pctDiff(totRealEs, SELLIN_TARGET_ES.slice(0,6).reduce((a,v)=>a+v,0)))}</td>
-    <td>${fmtE(totRealIntl)}</td><td>${fmtE(SELLIN_TARGET_INTL.reduce((a,v)=>a+v,0))}</td><td>${tagPct(pctDiff(totRealIntl, SELLIN_TARGET_INTL.slice(0,6).reduce((a,v)=>a+v,0)))}</td>
-    <td>${fmtE(totTotalReal)}</td><td>${fmtE(totTotalObj)}</td><td>${tagPct(pctDiff(totTotalReal, SELLIN_TARGET_ES.slice(0,6).reduce((a,v)=>a+v,0)+SELLIN_TARGET_INTL.slice(0,6).reduce((a,v)=>a+v,0)))}</td>
+    <td>YTD (Ene-Jul) / Objetivo Total Año</td>
+    <td>${fmtE(totRealEs)}</td><td>${fmtE(SELLIN_TARGET_ES.reduce((a,v)=>a+v,0))}</td><td>${tagPct(pctDiff(totRealEs, SELLIN_TARGET_ES.slice(0,7).reduce((a,v)=>a+v,0)))}</td>
+    <td>${fmtE(totRealIntl)}</td><td>${fmtE(SELLIN_TARGET_INTL.reduce((a,v)=>a+v,0))}</td><td>${tagPct(pctDiff(totRealIntl, SELLIN_TARGET_INTL.slice(0,7).reduce((a,v)=>a+v,0)))}</td>
+    <td>${fmtE(totTotalReal)}</td><td>${fmtE(totTotalObj)}</td><td>${tagPct(pctDiff(totTotalReal, SELLIN_TARGET_ES.slice(0,7).reduce((a,v)=>a+v,0)+SELLIN_TARGET_INTL.slice(0,7).reduce((a,v)=>a+v,0)))}</td>
   </tr>`;
   tbody.innerHTML = rows;
 
-  const ytdObjEs = SELLIN_TARGET_ES.slice(0,6).reduce((a,v)=>a+v,0);
-  const ytdObjIntl = SELLIN_TARGET_INTL.slice(0,6).reduce((a,v)=>a+v,0);
+  const ytdObjEs = SELLIN_TARGET_ES.slice(0,7).reduce((a,v)=>a+v,0);
+  const ytdObjIntl = SELLIN_TARGET_INTL.slice(0,7).reduce((a,v)=>a+v,0);
   document.getElementById('kpiSellInForecast').innerHTML =
     kpiCard('Sell-In Nacional (ES) YTD', fmtE(totRealEs), tagPct(pctDiff(totRealEs, ytdObjEs)) + ' vs objetivo YTD', 'amber') +
     kpiCard('Sell-In Internacional (IT+DE) YTD', fmtE(totRealIntl), tagPct(pctDiff(totRealIntl, ytdObjIntl)) + ' vs objetivo YTD', 'amber') +
@@ -1525,8 +1532,8 @@ function renderSellInForecast() {
 const ytdSellIn = { nacional: sum(SELLIN_REAL_ES), internacional: sum(SELLIN_REAL_INTL) };
 const ANNUAL_SELLIN_TARGET = { nacional: sum(SELLIN_TARGET_ES), internacional: sum(SELLIN_TARGET_INTL) };
 const sellInForecastData = {
-  nacional:      { targets: SELLIN_TARGET_ES.slice(6,12),   projections: SELLIN_TARGET_ES.slice(6,12) },
-  internacional: { targets: SELLIN_TARGET_INTL.slice(6,12), projections: SELLIN_TARGET_INTL.slice(6,12) },
+  nacional:      { targets: SELLIN_TARGET_ES.slice(7,12),   projections: SELLIN_TARGET_ES.slice(7,12) },
+  internacional: { targets: SELLIN_TARGET_INTL.slice(7,12), projections: SELLIN_TARGET_INTL.slice(7,12) },
 };
 
 function renderSellInForecastProgress() {
@@ -1539,7 +1546,7 @@ function renderSellInForecastProgress() {
     html += `<div class="progress-group">
       <div class="progress-label"><span>${lbl[grp]} — <strong>${fmtE(ytdSellIn[grp])}</strong> de ${fmtE(ANNUAL_SELLIN_TARGET[grp])}</span><span class="${pct>=40?'pct-good':'pct-bad'}"><strong>${pct.toFixed(1)}%</strong></span></div>
       <div class="progress-bar"><div class="progress-fill ${cls[grp]}" style="width:${Math.min(pct,100).toFixed(1)}%"></div></div>
-      <div style="font-size:11px;color:var(--text-muted);margin-top:3px">Pendiente: ${fmtE(pending)} en 6 meses → ~${fmtE(pending/6)}/mes</div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:3px">Pendiente: ${fmtE(pending)} en 5 meses → ~${fmtE(pending/5)}/mes</div>
     </div>`;
   });
   document.getElementById('forecastProgressSellIn').innerHTML = html;
@@ -1579,7 +1586,7 @@ function updateSellInForecastTotals() {
   const foot = document.getElementById('forecastFootSellIn');
   foot.innerHTML = '';
   const totRow = document.createElement('tr'); totRow.className='total';
-  totRow.innerHTML='<td>Jul–Dic TOTAL</td>';
+  totRow.innerHTML='<td>Ago–Dic TOTAL</td>';
   ['nacional','internacional'].forEach(grp=>{
     const tO=sum(sellInForecastData[grp].targets), tP=sum(sellInForecastData[grp].projections);
     const d=((tP-tO)/tO*100).toFixed(1); const cl=d>=0?'pct-good':'pct-bad';
@@ -1622,7 +1629,7 @@ function renderForecastProgress() {
     html += `<div class="progress-group">
       <div class="progress-label"><span>${lbl[mkt]} — <strong>${fmtE(ytd[mkt])}</strong> de ${fmtE(ANNUAL_TARGET[mkt])}</span><span class="${pct>=40?'pct-good':'pct-bad'}"><strong>${pct.toFixed(1)}%</strong></span></div>
       <div class="progress-bar"><div class="progress-fill ${cls[mkt]}" style="width:${Math.min(pct,100).toFixed(1)}%"></div></div>
-      <div style="font-size:11px;color:var(--text-muted);margin-top:3px">Pendiente: ${fmtE(pending)} en 6 meses → ~${fmtE(pending/6)}/mes</div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:3px">Pendiente: ${fmtE(pending)} en 5 meses → ~${fmtE(pending/5)}/mes</div>
     </div>`;
   });
   document.getElementById('forecastProgress').innerHTML = html;
@@ -1667,7 +1674,7 @@ function updateForecastTotals() {
   const foot = document.getElementById('forecastFoot');
   foot.innerHTML = '';
   const totRow = document.createElement('tr'); totRow.className='total';
-  totRow.innerHTML='<td>Jul–Dic TOTAL</td>';
+  totRow.innerHTML='<td>Ago–Dic TOTAL</td>';
   ['es','it','de'].forEach(mkt=>{
     const tO=sum(forecastData[mkt].targets), tP=sum(forecastData[mkt].projections);
     const d=((tP-tO)/tO*100).toFixed(1); const cl=d>=0?'pct-good':'pct-bad';
